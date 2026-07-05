@@ -6,9 +6,6 @@
       "tema": "gratidao",
       "abertura": "Tem dias em que a correria toma conta antes mesmo de você abrir os olhos direito. Mas antes da primeira tarefa, antes da primeira preocupação, já existe um presente esperando por você: mais um dia de vida.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "Este dia",
-      "headline_highlight": "foi feito",
-      "headline_after": "por Deus",
       "subtitle1": "Antes de você acordar, Ele já preparou motivos para agradecer.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Este é o dia que o Senhor fez; alegremo-nos e regozijemo-nos nele.",
@@ -17,16 +14,30 @@
       "cta_before": "Escolha a gratidão",
       "cta_highlight": "antes",
       "cta_after": "da pressa.",
-      "cta_subtitle": "Respire, agradeça e confie: hoje também é obra das mãos de Deus."
+      "cta_subtitle": "Respire, agradeça e confie: hoje também é obra das mãos de Deus.",
+      "headline_chunks": [
+        {
+          "text": "Este dia",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "foi feito",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "por Deus",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 2,
       "tema": "confianca",
       "abertura": "Tem coisa que a gente só entende depois, olhando pra trás. Enquanto isso, a fé pede algo simples e difícil ao mesmo tempo: confiar mesmo sem enxergar o mapa inteiro.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "Confie",
-      "headline_highlight": "de coração",
-      "headline_after": "inteiro",
       "subtitle1": "Você não precisa entender tudo agora para confiar em quem sabe o caminho.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Confia no Senhor de todo o teu coração e não te apoies no teu próprio entendimento.",
@@ -36,16 +47,29 @@
       "cta_highlight": "não",
       "cta_after": "a fé.",
       "cta_subtitle": "O que parece incerto pra você já está resolvido nas mãos de Deus.",
-      "headline_before_accent": true
+      "headline_chunks": [
+        {
+          "text": "Confie",
+          "style": "caps",
+          "accent": "all"
+        },
+        {
+          "text": "de coração",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "inteiro",
+          "style": "caps",
+          "accent": null
+        }
+      ]
     },
     {
       "id": 3,
       "tema": "paz",
       "abertura": "O mundo lá fora não para, as notificações não param, os problemas parecem se multiplicar. Mas existe uma paz que não depende de nada disso silenciar primeiro.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "A paz",
-      "headline_highlight": "não depende",
-      "headline_after": "do caos ao redor",
       "subtitle1": "Ela nasce de saber quem está no controle, mesmo quando tudo parece fora do lugar.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Deixo-vos a paz, a minha paz vos dou; não a dou como o mundo a dá.",
@@ -54,16 +78,30 @@
       "cta_before": "O que você precisa",
       "cta_highlight": "entregar",
       "cta_after": "hoje?",
-      "cta_subtitle": "Comenta aqui embaixo o que está pesando no seu coração."
+      "cta_subtitle": "Comenta aqui embaixo o que está pesando no seu coração.",
+      "headline_chunks": [
+        {
+          "text": "A paz",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "não depende",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "do caos ao redor",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 4,
       "tema": "esperanca",
       "abertura": "Esperar nunca foi fácil, principalmente quando parece que nada está mudando. Mas o tempo de espera não é tempo perdido — é tempo de preparo.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "A espera",
-      "headline_highlight": "não é",
-      "headline_after": "tempo perdido",
       "subtitle1": "Deus usa cada dia de espera para preparar o que Ele já prometeu.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Os que esperam no Senhor renovarão as suas forças; subirão com asas como águias.",
@@ -72,16 +110,30 @@
       "cta_before": "Sua espera",
       "cta_highlight": "tem",
       "cta_after": "propósito.",
-      "cta_subtitle": "Continue firme: o tempo certo de Deus nunca atrasa."
+      "cta_subtitle": "Continue firme: o tempo certo de Deus nunca atrasa.",
+      "headline_chunks": [
+        {
+          "text": "A espera",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "não é",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "tempo perdido",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 5,
       "tema": "forca",
       "abertura": "Tem dias em que levantar da cama já parece a tarefa mais difícil do mundo. Mas a força que você precisa hoje não depende só de você.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "Você é",
-      "headline_highlight": "mais forte",
-      "headline_after": "do que pensa",
       "subtitle1": "A força que você precisa hoje já foi colocada em você por quem te criou.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Posso todas as coisas naquele que me fortalece.",
@@ -90,16 +142,30 @@
       "cta_before": "Levante a cabeça,",
       "cta_highlight": "não",
       "cta_after": "a bandeira branca.",
-      "cta_subtitle": "Deus não te chamaria pra essa batalha se não tivesse te dado forças pra ela."
+      "cta_subtitle": "Deus não te chamaria pra essa batalha se não tivesse te dado forças pra ela.",
+      "headline_chunks": [
+        {
+          "text": "Você é",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "mais forte",
+          "style": "caps",
+          "accent": "all"
+        },
+        {
+          "text": "do que pensa",
+          "style": "italic",
+          "accent": null
+        }
+      ]
     },
     {
       "id": 6,
       "tema": "fe",
       "abertura": "Fé de verdade aparece justo quando não dá pra ver o final da história. Ela não precisa de certeza total pra continuar confiando.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "A fé",
-      "headline_highlight": "enxerga",
-      "headline_after": "o invisível",
       "subtitle1": "Ela não precisa de provas pra acreditar que Deus já está agindo.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Ora, a fé é o firme fundamento das coisas que se esperam, e a prova das coisas que se não veem.",
@@ -108,16 +174,30 @@
       "cta_before": "Continue crendo,",
       "cta_highlight": "mesmo",
       "cta_after": "sem ver ainda.",
-      "cta_subtitle": "O que Deus prometeu, Ele cumpre — na hora certa."
+      "cta_subtitle": "O que Deus prometeu, Ele cumpre — na hora certa.",
+      "headline_chunks": [
+        {
+          "text": "A fé",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "enxerga",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "o invisível",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 7,
       "tema": "descanso",
       "abertura": "Vivemos numa cultura que valoriza a correria e esquece o descanso. Mas até Deus, depois de criar tudo, escolheu parar.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "Você pode",
-      "headline_highlight": "descansar",
-      "headline_after": "hoje",
       "subtitle1": "Carregar tudo sozinho nunca foi o plano de Deus pra sua vida.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Vinde a mim, todos os que estais cansados e sobrecarregados, e eu vos aliviarei.",
@@ -126,16 +206,30 @@
       "cta_before": "Entregue o peso,",
       "cta_highlight": "guarde",
       "cta_after": "a paz.",
-      "cta_subtitle": "Você não precisa resolver tudo hoje. Só precisa confiar."
+      "cta_subtitle": "Você não precisa resolver tudo hoje. Só precisa confiar.",
+      "headline_chunks": [
+        {
+          "text": "Você pode",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "descansar",
+          "style": "caps",
+          "accent": "all"
+        },
+        {
+          "text": "hoje",
+          "style": "italic",
+          "accent": null
+        }
+      ]
     },
     {
       "id": 8,
       "tema": "amor",
       "abertura": "É fácil acreditar que o amor de Deus depende do quanto você acerta. Mas a verdade é bem mais simples e bem mais generosa que isso.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "Você é",
-      "headline_highlight": "amado",
-      "headline_after": "antes de merecer",
       "subtitle1": "O amor de Deus por você nunca dependeu do seu desempenho.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Mas Deus prova o seu amor para conosco em que Cristo morreu por nós, sendo nós ainda pecadores.",
@@ -144,16 +238,30 @@
       "cta_before": "Receba o amor,",
       "cta_highlight": "não",
       "cta_after": "a culpa.",
-      "cta_subtitle": "Você não precisa se provar digno pra ser amado por Deus."
+      "cta_subtitle": "Você não precisa se provar digno pra ser amado por Deus.",
+      "headline_chunks": [
+        {
+          "text": "Você é",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "amado",
+          "style": "caps",
+          "accent": "all"
+        },
+        {
+          "text": "antes de merecer",
+          "style": "italic",
+          "accent": null
+        }
+      ]
     },
     {
       "id": 9,
       "tema": "proposito",
       "abertura": "Tem dias em que a rotina parece não fazer sentido nenhum. Mas mesmo os dias mais comuns fazem parte de um propósito maior que você ainda não enxerga por completo.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "Seus dias",
-      "headline_highlight": "têm",
-      "headline_after": "um propósito",
       "subtitle1": "Nada do que você está vivendo agora é por acaso.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Porque eu bem sei os pensamentos que penso de vós, diz o Senhor; pensamentos de paz, e não de mal, para vos dar o fim que esperais.",
@@ -162,16 +270,30 @@
       "cta_before": "Confie no plano,",
       "cta_highlight": "não",
       "cta_after": "só na pressa.",
-      "cta_subtitle": "Deus está tecendo algo bom, mesmo nos dias que parecem sem sentido."
+      "cta_subtitle": "Deus está tecendo algo bom, mesmo nos dias que parecem sem sentido.",
+      "headline_chunks": [
+        {
+          "text": "Seus dias",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "têm",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "um propósito",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 10,
       "tema": "perdao",
       "abertura": "Guardar mágoa parece proteção, mas na verdade é um peso extra que ninguém pediu pra você carregar. A graça de Deus é sempre maior que qualquer erro.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "Perdoar",
-      "headline_highlight": "liberta",
-      "headline_after": "você primeiro",
       "subtitle1": "Guardar mágoa é carregar um peso que Deus nunca pediu pra você levar.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "E sede uns para com os outros benignos, misericordiosos, perdoando-vos uns aos outros, como também Deus vos perdoou em Cristo.",
@@ -181,16 +303,29 @@
       "cta_highlight": "soltar",
       "cta_after": "hoje?",
       "cta_subtitle": "Comenta aqui embaixo se esse verso falou com você.",
-      "headline_before_accent": true
+      "headline_chunks": [
+        {
+          "text": "Perdoar",
+          "style": "caps",
+          "accent": "all"
+        },
+        {
+          "text": "liberta",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "você primeiro",
+          "style": "caps",
+          "accent": null
+        }
+      ]
     },
     {
       "id": 11,
       "tema": "coragem",
       "abertura": "Enfrentar o novo, o incerto, o difícil — tudo isso assusta. Mas coragem nunca foi sobre não sentir medo, é sobre confiar em quem caminha ao seu lado.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "Seja forte",
-      "headline_highlight": "e corajoso",
-      "headline_after": "hoje",
       "subtitle1": "Deus não te prometeu um caminho fácil, mas prometeu andar ao seu lado.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Não ta mandei eu? Esforça-te, e tem bom ânimo; não temas, nem te espantes, porque o Senhor teu Deus é contigo, por onde quer que andares.",
@@ -199,16 +334,25 @@
       "cta_before": "Dê o passo,",
       "cta_highlight": "mesmo",
       "cta_after": "com medo.",
-      "cta_subtitle": "Coragem não é ausência de medo, é confiar em Deus apesar dele."
+      "cta_subtitle": "Coragem não é ausência de medo, é confiar em Deus apesar dele.",
+      "headline_chunks": [
+        {
+          "text": "Seja forte e corajoso",
+          "style": "caps",
+          "accent": "all"
+        },
+        {
+          "text": "hoje",
+          "style": "italic",
+          "accent": null
+        }
+      ]
     },
     {
       "id": 12,
       "tema": "gratidao",
       "abertura": "É fácil focar no que ainda falta e esquecer de olhar pro que Deus já deu. Às vezes a gratidão não muda a situação, mas muda completamente o jeito que você atravessa ela.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "A gratidão",
-      "headline_highlight": "muda",
-      "headline_after": "o seu dia",
       "subtitle1": "Antes de pedir mais, pare pra agradecer pelo que já recebeu.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Em tudo dai graças, porque esta é a vontade de Deus em Cristo Jesus para convosco.",
@@ -217,16 +361,25 @@
       "cta_before": "Agradeça primeiro,",
       "cta_highlight": "peça",
       "cta_after": "depois.",
-      "cta_subtitle": "A gratidão transforma o jeito que você enxerga o seu dia."
+      "cta_subtitle": "A gratidão transforma o jeito que você enxerga o seu dia.",
+      "headline_chunks": [
+        {
+          "text": "Agradeça",
+          "style": "caps",
+          "accent": "all"
+        },
+        {
+          "text": "primeiro, peça depois.",
+          "style": "italic",
+          "accent": null
+        }
+      ]
     },
     {
       "id": 13,
       "tema": "confianca",
       "abertura": "Quando o controle escapa das nossas mãos, a ansiedade tenta tomar o lugar da paz. Mas existe alguém que nunca perdeu o controle de nada — e Ele está cuidando do seu caminho.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "Deus cuida",
-      "headline_highlight": "de cada",
-      "headline_after": "detalhe",
       "subtitle1": "Se Ele cuida dos pássaros do céu, Ele não vai esquecer de você.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Olhai para as aves do céu, que nem semeiam, nem segam, nem ajuntam em celeiros; e vosso Pai celestial as alimenta.",
@@ -235,16 +388,30 @@
       "cta_before": "Você vale",
       "cta_highlight": "mais",
       "cta_after": "do que imagina.",
-      "cta_subtitle": "Se Deus cuida dos detalhes da natureza, Ele cuida dos seus também."
+      "cta_subtitle": "Se Deus cuida dos detalhes da natureza, Ele cuida dos seus também.",
+      "headline_chunks": [
+        {
+          "text": "Deus cuida",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "de cada",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "detalhe",
+          "style": "caps",
+          "accent": "all"
+        }
+      ]
     },
     {
       "id": 14,
       "tema": "paz",
       "abertura": "A ansiedade adora se alimentar do que ainda não aconteceu. Só que a paz de Deus não espera as circunstâncias mudarem pra chegar até você.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "Não se",
-      "headline_highlight": "afadigue",
-      "headline_after": "por nada",
       "subtitle1": "A ansiedade some quando a oração toma o lugar da preocupação.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Não estejais inquietos por coisa alguma; antes, as vossas petições sejam em tudo conhecidas diante de Deus.",
@@ -253,16 +420,30 @@
       "cta_before": "O que está te tirando",
       "cta_highlight": "a paz",
       "cta_after": "hoje?",
-      "cta_subtitle": "Comenta aqui embaixo e entrega isso em oração agora mesmo."
+      "cta_subtitle": "Comenta aqui embaixo e entrega isso em oração agora mesmo.",
+      "headline_chunks": [
+        {
+          "text": "Não se",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "afadigue",
+          "style": "caps",
+          "accent": "all"
+        },
+        {
+          "text": "por nada",
+          "style": "italic",
+          "accent": null
+        }
+      ]
     },
     {
       "id": 15,
       "tema": "esperanca",
       "abertura": "Às vezes a gente carrega o peso do amanhã como se já tivesse certeza de que vai dar errado. Só que o futuro está guardado em mãos muito mais seguras que as nossas.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "O amanhã",
-      "headline_highlight": "está",
-      "headline_after": "nas mãos de Deus",
       "subtitle1": "Você não precisa carregar o peso do futuro sozinho hoje.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Não andeis, pois, inquietos pelo dia de amanhã, porque o dia de amanhã cuidará de si mesmo.",
@@ -271,16 +452,30 @@
       "cta_before": "Viva um dia",
       "cta_highlight": "de cada vez",
       "cta_after": ".",
-      "cta_subtitle": "Hoje já tem graça suficiente. Confie o amanhã a Deus."
+      "cta_subtitle": "Hoje já tem graça suficiente. Confie o amanhã a Deus.",
+      "headline_chunks": [
+        {
+          "text": "O amanhã",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "está",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "nas mãos de Deus",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 16,
       "tema": "forca",
       "abertura": "Cansaço não é sinal de fraqueza, é sinal de que você tem carregado mais do que imaginava. E é exatamente aí que a força de Deus se mostra maior.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "Cansaço",
-      "headline_highlight": "não é",
-      "headline_after": "fraqueza",
       "subtitle1": "Até nos dias difíceis, a força de Deus se aperfeiçoa na sua fraqueza.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "E disse-me: A minha graça te basta, porque o meu poder se aperfeiçoa na fraqueza.",
@@ -290,16 +485,29 @@
       "cta_highlight": "não",
       "cta_after": "te desqualifica.",
       "cta_subtitle": "É justamente ali que o poder de Deus se manifesta com mais força.",
-      "headline_before_accent": true
+      "headline_chunks": [
+        {
+          "text": "Cansaço",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "não é",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "fraqueza",
+          "style": "caps",
+          "accent": "all"
+        }
+      ]
     },
     {
       "id": 17,
       "tema": "fe",
       "abertura": "Às vezes o que você está pedindo parece grande demais, quase impossível. Mas nada é impossível pra quem criou tudo o que existe.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "Um passo",
-      "headline_highlight": "de fé",
-      "headline_after": "move montanhas",
       "subtitle1": "Você não precisa de uma fé gigante, só precisa de fé em um Deus gigante.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Se tiverdes fé como um grão de mostarda, direis a este monte: passa daqui para acolá, e há de passar.",
@@ -308,16 +516,30 @@
       "cta_before": "Dê o próximo passo,",
       "cta_highlight": "não",
       "cta_after": "espere a certeza total.",
-      "cta_subtitle": "A fé cresce enquanto você caminha, não enquanto você espera parado."
+      "cta_subtitle": "A fé cresce enquanto você caminha, não enquanto você espera parado.",
+      "headline_chunks": [
+        {
+          "text": "Um passo",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "de fé",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "move montanhas",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 18,
       "tema": "descanso",
       "abertura": "Quando foi a última vez que você parou de verdade, sem culpa? Descansar também é um ato de confiança em quem sustenta tudo enquanto você respira.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "Pare",
-      "headline_highlight": "um instante",
-      "headline_after": "e respire",
       "subtitle1": "Deus também descansou. Você tem permissão pra parar também.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Aquietai-vos, e sabei que eu sou Deus.",
@@ -326,16 +548,25 @@
       "cta_before": "Quando foi a última vez",
       "cta_highlight": "que você parou",
       "cta_after": "de verdade?",
-      "cta_subtitle": "Comenta aqui embaixo e se permite descansar hoje."
+      "cta_subtitle": "Comenta aqui embaixo e se permite descansar hoje.",
+      "headline_chunks": [
+        {
+          "text": "Pare",
+          "style": "caps",
+          "accent": "all"
+        },
+        {
+          "text": "um instante e respire",
+          "style": "italic",
+          "accent": null
+        }
+      ]
     },
     {
       "id": 19,
       "tema": "amor",
       "abertura": "Nos dias em que você se sente insuficiente, vale lembrar de uma coisa: nada muda o tamanho do amor que Deus tem por você.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "Nada",
-      "headline_highlight": "separa você",
-      "headline_after": "do amor de Deus",
       "subtitle1": "Nem seus erros, nem seus dias ruins mudam o quanto Ele te ama.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Nem a morte, nem a vida, nem anjos, nem principados... nem alguma outra criatura nos poderá separar do amor de Deus.",
@@ -344,16 +575,30 @@
       "cta_before": "Descanse",
       "cta_highlight": "nesse amor",
       "cta_after": "hoje.",
-      "cta_subtitle": "Você é amado de um jeito que nada nesse mundo pode desfazer."
+      "cta_subtitle": "Você é amado de um jeito que nada nesse mundo pode desfazer.",
+      "headline_chunks": [
+        {
+          "text": "Nada",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "separa você",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "do amor de Deus",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 20,
       "tema": "proposito",
       "abertura": "Você já se perguntou se sua vida tem mesmo um propósito? A resposta de Deus sobre isso é mais clara do que você imagina.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "Você foi",
-      "headline_highlight": "criado",
-      "headline_after": "com intenção",
       "subtitle1": "Sua vida não é um acidente — foi planejada com cuidado por Deus.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Porque nós somos feitura sua, criados em Cristo Jesus para as boas obras.",
@@ -362,16 +607,30 @@
       "cta_before": "Você tem",
       "cta_highlight": "valor",
       "cta_after": "e propósito.",
-      "cta_subtitle": "Nada em você é acidente. Tudo tem um porquê."
+      "cta_subtitle": "Nada em você é acidente. Tudo tem um porquê.",
+      "headline_chunks": [
+        {
+          "text": "Você foi",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "criado",
+          "style": "caps",
+          "accent": "all"
+        },
+        {
+          "text": "com intenção",
+          "style": "italic",
+          "accent": null
+        }
+      ]
     },
     {
       "id": 21,
       "tema": "perdao",
       "abertura": "Tem gente que vive anos presa a um erro do passado, seu ou de outra pessoa. Mas o perdão de Deus não tem prazo de validade nem letra miúda.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "A graça",
-      "headline_highlight": "cobre",
-      "headline_after": "seus erros",
       "subtitle1": "Você não precisa carregar culpa por algo que Deus já perdoou.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Se confessarmos os nossos pecados, ele é fiel e justo para nos perdoar os pecados.",
@@ -380,16 +639,30 @@
       "cta_before": "Solte a culpa,",
       "cta_highlight": "receba",
       "cta_after": "o perdão.",
-      "cta_subtitle": "A graça de Deus é maior do que qualquer erro que você já cometeu."
+      "cta_subtitle": "A graça de Deus é maior do que qualquer erro que você já cometeu.",
+      "headline_chunks": [
+        {
+          "text": "A graça",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "cobre",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "seus erros",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 22,
       "tema": "coragem",
       "abertura": "Tem batalhas que parecem grandes demais pra enfrentar sozinho. A boa notícia é que você nunca precisou enfrentar nada sozinho.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "Deus",
-      "headline_highlight": "vai à frente",
-      "headline_after": "de você",
       "subtitle1": "Você não enfrenta nada sozinho — Ele já foi na frente preparar o caminho.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "E o Senhor é aquele que vai adiante de ti; ele será contigo, não te deixará, nem te desamparará; não temas, nem te espantes.",
@@ -398,16 +671,30 @@
       "cta_before": "Qual medo você quer",
       "cta_highlight": "entregar",
       "cta_after": "hoje?",
-      "cta_subtitle": "Comenta aqui embaixo — Deus já está à sua frente nessa batalha."
+      "cta_subtitle": "Comenta aqui embaixo — Deus já está à sua frente nessa batalha.",
+      "headline_chunks": [
+        {
+          "text": "Deus",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "vai à frente",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "de você",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 23,
       "tema": "gratidao",
       "abertura": "Numa rotina corrida, as pequenas bênçãos passam despercebidas. Só que são justamente elas que mostram o cuidado de Deus se repetindo todos os dias, sem parar.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "Pequenas coisas,",
-      "headline_highlight": "grande",
-      "headline_after": "gratidão",
       "subtitle1": "Um café quente, um teto, uma respiração — tudo já é motivo pra agradecer.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Bendize, ó minha alma, ao Senhor, e não te esqueças de nenhum de seus benefícios.",
@@ -416,16 +703,30 @@
       "cta_before": "Conte",
       "cta_highlight": "três",
       "cta_after": "bênçãos agora.",
-      "cta_subtitle": "Reconhecer o bem que já existe muda o resto do seu dia."
+      "cta_subtitle": "Reconhecer o bem que já existe muda o resto do seu dia.",
+      "headline_chunks": [
+        {
+          "text": "Pequenas coisas,",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "grande",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "gratidão",
+          "style": "caps",
+          "accent": "all"
+        }
+      ]
     },
     {
       "id": 24,
       "tema": "confianca",
       "abertura": "Às vezes parece que ninguém percebe o que você está enfrentando. Só que Deus enxerga cada detalhe da sua vida antes mesmo de você contar pra Ele.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "Ele sabe",
-      "headline_highlight": "o que",
-      "headline_after": "você precisa",
       "subtitle1": "Antes de você pedir, Deus já sabia da sua necessidade.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Pois vosso Pai sabe o que vos é necessário, antes de vós pedi-lo.",
@@ -434,16 +735,30 @@
       "cta_before": "Confie no cuidado,",
       "cta_highlight": "não",
       "cta_after": "só na resposta.",
-      "cta_subtitle": "Deus cuida de você mesmo antes de você perceber que precisava."
+      "cta_subtitle": "Deus cuida de você mesmo antes de você perceber que precisava.",
+      "headline_chunks": [
+        {
+          "text": "Ele sabe",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "o que",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "você precisa",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 25,
       "tema": "paz",
       "abertura": "Tem dias em que tudo parece tempestade — no trabalho, em casa, na mente. Mas quem acalmou o mar da Galileia ainda acalma corações hoje.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "A tempestade",
-      "headline_highlight": "não abala",
-      "headline_after": "quem confia",
       "subtitle1": "Jesus dorme na mesma barca que balança — sua paz não depende das ondas.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "E ele, levantando-se, repreendeu o vento e disse ao mar: Cala-te, aquieta-te. E cessou o vento, e fez-se grande bonança.",
@@ -452,16 +767,30 @@
       "cta_before": "Sua tempestade",
       "cta_highlight": "tem",
       "cta_after": "prazo de validade.",
-      "cta_subtitle": "Aquele que acalmou o mar pode acalmar o que está dentro de você também."
+      "cta_subtitle": "Aquele que acalmou o mar pode acalmar o que está dentro de você também.",
+      "headline_chunks": [
+        {
+          "text": "A tempestade",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "não abala",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "quem confia",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 26,
       "tema": "esperanca",
       "abertura": "Depois de uma noite difícil, é fácil esquecer que o amanhecer sempre chega. A dor pode durar uma estação, mas ela não é a versão final da sua história.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "Depois da",
-      "headline_highlight": "noite,",
-      "headline_after": "vem a alegria",
       "subtitle1": "O choro pode durar uma noite, mas a alegria vem pela manhã.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "O choro pode durar uma noite, mas a alegria vem pela manhã.",
@@ -470,16 +799,30 @@
       "cta_before": "Que noite você está",
       "cta_highlight": "atravessando",
       "cta_after": "agora?",
-      "cta_subtitle": "Comenta aqui embaixo — a manhã de Deus está mais perto do que parece."
+      "cta_subtitle": "Comenta aqui embaixo — a manhã de Deus está mais perto do que parece.",
+      "headline_chunks": [
+        {
+          "text": "Depois da noite,",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "vem",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "a alegria",
+          "style": "caps",
+          "accent": "all"
+        }
+      ]
     },
     {
       "id": 27,
       "tema": "forca",
       "abertura": "No fim de um dia difícil, a energia acaba antes da lista de tarefas. Mas existe uma fonte de força que não se esgota como a nossa.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "Renove",
-      "headline_highlight": "as forças",
-      "headline_after": "hoje",
       "subtitle1": "Você não precisa terminar o dia com a mesma energia que começou sozinho.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Mas os que esperam no Senhor renovarão as forças, subirão com asas como águias, correrão e não se cansarão.",
@@ -489,16 +832,29 @@
       "cta_highlight": "não",
       "cta_after": "nas suas forças.",
       "cta_subtitle": "A força certa pra hoje vem de quem nunca se cansa.",
-      "headline_before_accent": true
+      "headline_chunks": [
+        {
+          "text": "Renove",
+          "style": "caps",
+          "accent": "all"
+        },
+        {
+          "text": "as forças",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "hoje",
+          "style": "caps",
+          "accent": null
+        }
+      ]
     },
     {
       "id": 28,
       "tema": "fe",
       "abertura": "Dar o próximo passo sem enxergar o caminho inteiro exige coragem. É exatamente aí que a fé deixa de ser teoria e vira experiência real.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "Tudo",
-      "headline_highlight": "é possível",
-      "headline_after": "para quem crê",
       "subtitle1": "As limitações que você enxerga não são limitações para Deus.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Jesus, porém, olhando para eles, disse: Para os homens é impossível, mas para Deus tudo é possível.",
@@ -507,16 +863,30 @@
       "cta_before": "O impossível",
       "cta_highlight": "não",
       "cta_after": "existe pra Deus.",
-      "cta_subtitle": "Continue confiando — Ele já resolveu o que parece impossível pra você."
+      "cta_subtitle": "Continue confiando — Ele já resolveu o que parece impossível pra você.",
+      "headline_chunks": [
+        {
+          "text": "Tudo",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "é possível",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "para quem crê",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 29,
       "tema": "amor",
       "abertura": "Antes de qualquer conquista, antes de qualquer erro, já existia um amor esperando por você. Ele nunca dependeu do seu desempenho.",
       "kicker1": "PALAVRA DO DIA",
-      "headline_before": "O maior",
-      "headline_highlight": "mandamento",
-      "headline_after": "é amar",
       "subtitle1": "Antes de qualquer regra, Deus pede um coração que ama.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "Amarás o Senhor teu Deus de todo o teu coração... e amarás o teu próximo como a ti mesmo.",
@@ -525,16 +895,30 @@
       "cta_before": "Ame primeiro,",
       "cta_highlight": "julgue",
       "cta_after": "depois.",
-      "cta_subtitle": "O mundo precisa de mais amor genuíno do que de mais opinião."
+      "cta_subtitle": "O mundo precisa de mais amor genuíno do que de mais opinião.",
+      "headline_chunks": [
+        {
+          "text": "O maior",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "mandamento",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "é amar",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     },
     {
       "id": 30,
       "tema": "proposito",
       "abertura": "Às vezes o que parece um desvio na sua vida é, na verdade, o caminho sendo preparado. Nada com Deus é por acaso.",
       "kicker1": "VERSO DO DIA",
-      "headline_before": "Tudo coopera",
-      "headline_highlight": "para o",
-      "headline_after": "seu bem",
       "subtitle1": "Até o que parece ruim agora, Deus pode transformar em algo bom.",
       "kicker2": "PALAVRA DE HOJE",
       "versiculo_texto": "E sabemos que todas as coisas cooperam para o bem daqueles que amam a Deus.",
@@ -543,7 +927,24 @@
       "cta_before": "O que parece ruim hoje mas",
       "cta_highlight": "Deus",
       "cta_after": "pode transformar?",
-      "cta_subtitle": "Comenta aqui embaixo e guarda essa promessa no coração."
+      "cta_subtitle": "Comenta aqui embaixo e guarda essa promessa no coração.",
+      "headline_chunks": [
+        {
+          "text": "Tudo coopera",
+          "style": "caps",
+          "accent": null
+        },
+        {
+          "text": "para o",
+          "style": "italic",
+          "accent": null
+        },
+        {
+          "text": "seu bem",
+          "style": "caps",
+          "accent": "last"
+        }
+      ]
     }
   ]
 }

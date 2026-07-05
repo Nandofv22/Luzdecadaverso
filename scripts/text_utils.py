@@ -106,64 +106,50 @@ def draw_paragraph_last_word_accent(draw, text, font, center_x, top_y, max_width
     return y
 
 
-def measure_stacked_headline(draw, before, highlight, after, bold_font, italic_font, max_width, gap=14):
-    lines_before = wrap_text(draw, before.upper(), bold_font, max_width)
-    lines_highlight = wrap_text(draw, highlight, italic_font, max_width)
-    lines_after = wrap_text(draw, after.upper(), bold_font, max_width)
-    bold_line_h = draw.textbbox((0, 0), "Ag", font=bold_font)[3] * 1.1
-    italic_line_h = draw.textbbox((0, 0), "Ag", font=italic_font)[3] * 1.15
-    total_h = (
-        bold_line_h * len(lines_before) + gap
-        + italic_line_h * len(lines_highlight) + gap
-        + bold_line_h * len(lines_after)
-    )
-    return total_h, bold_line_h, italic_line_h
+def measure_chunk_lines(draw, chunks, bold_font, italic_font, max_width, gap=14):
+    """chunks: list of {"text": str, "style": "caps"|"italic", "accent": None|"last"|"all"}.
+    Each chunk becomes its own line (or wrapped lines), letting each entry decide
+    per-sentence which phrase is bold/caps, which is the soft italic connector, and
+    which word(s) actually deserve the accent color+underline - instead of a fixed
+    positional rule."""
+    resolved = []
+    total_h = 0
+    for i, chunk in enumerate(chunks):
+        is_italic = chunk["style"] == "italic"
+        font = italic_font if is_italic else bold_font
+        text = chunk["text"] if is_italic else chunk["text"].upper()
+        lines = wrap_text(draw, text, font, max_width)
+        line_h = draw.textbbox((0, 0), "Ag", font=font)[3] * (1.15 if is_italic else 1.1)
+        resolved.append({"lines": lines, "font": font, "line_h": line_h, "style": chunk["style"], "accent": chunk.get("accent")})
+        total_h += line_h * len(lines)
+        if i < len(chunks) - 1:
+            total_h += gap
+    return total_h, resolved
 
 
-def _draw_bold_lines_last_word_accent(draw, lines, font, center_x, top_y, line_h, dark_fill, accent_fill, space_w, accent_whole_last_line=False):
+def draw_chunk_lines(draw, resolved, center_x, top_y, dark_fill, dim_fill, accent_fill, gap=14):
     y = top_y
-    for i, line in enumerate(lines):
-        words = line.split()
-        widths, total_w = _line_width(draw, words, font, space_w)
-        x = center_x - total_w / 2
-        is_last_line = i == len(lines) - 1
-        for j, (w, bw) in enumerate(zip(words, widths)):
-            is_accented = is_last_line and (accent_whole_last_line or j == len(words) - 1)
-            color = accent_fill if is_accented else dark_fill
-            draw.text((x, y), w, font=font, fill=color)
-            if is_accented:
-                bbox = draw.textbbox((x, y), w, font=font)
-                draw.line([(bbox[0], bbox[3] + 4), (bbox[2], bbox[3] + 4)], fill=accent_fill, width=4)
-            x += bw + space_w
-        y += line_h
-    return y
-
-
-def draw_stacked_headline(draw, before, highlight, after, bold_font, italic_font, center_x, top_y, max_width, dark_fill, dim_fill, accent_fill, gap=14, before_accent=False):
-    """Draws a 3-line headline: BOLD CAPS / italic phrase / BOLD CAPS with last word underlined+accented."""
-    lines_before = wrap_text(draw, before.upper(), bold_font, max_width)
-    lines_highlight = wrap_text(draw, highlight, italic_font, max_width)
-    lines_after = wrap_text(draw, after.upper(), bold_font, max_width)
-    bold_line_h = draw.textbbox((0, 0), "Ag", font=bold_font)[3] * 1.1
-    italic_line_h = draw.textbbox((0, 0), "Ag", font=italic_font)[3] * 1.15
-    space_w_bold = draw.textbbox((0, 0), " ", font=bold_font)[2]
-
-    y = top_y
-    if before_accent:
-        y = _draw_bold_lines_last_word_accent(
-            draw, lines_before, bold_font, center_x, y, bold_line_h, dark_fill, accent_fill, space_w_bold,
-            accent_whole_last_line=True,
-        )
-    else:
-        for line in lines_before:
-            draw_centered_multiline(draw, [line], bold_font, center_x, y, 0, dark_fill)
-            y += bold_line_h
-    y += gap
-
-    draw_centered_multiline(draw, lines_highlight, italic_font, center_x, y, italic_line_h, dim_fill)
-    y += italic_line_h * len(lines_highlight) + gap
-
-    y = _draw_bold_lines_last_word_accent(
-        draw, lines_after, bold_font, center_x, y, bold_line_h, dark_fill, accent_fill, space_w_bold,
-    )
+    for i, r in enumerate(resolved):
+        lines, font, line_h, style, accent = r["lines"], r["font"], r["line_h"], r["style"], r["accent"]
+        if style == "italic":
+            draw_centered_multiline(draw, lines, font, center_x, y, line_h, dim_fill)
+            y += line_h * len(lines)
+        else:
+            space_w = draw.textbbox((0, 0), " ", font=font)[2]
+            for j, line in enumerate(lines):
+                is_last_line = j == len(lines) - 1
+                words = line.split()
+                widths, total_w = _line_width(draw, words, font, space_w)
+                x = center_x - total_w / 2
+                for k, (w, bw) in enumerate(zip(words, widths)):
+                    is_accented = accent == "all" or (accent == "last" and is_last_line and k == len(words) - 1)
+                    color = accent_fill if is_accented else dark_fill
+                    draw.text((x, y), w, font=font, fill=color)
+                    if is_accented:
+                        bbox = draw.textbbox((x, y), w, font=font)
+                        draw.line([(bbox[0], bbox[3] + 4), (bbox[2], bbox[3] + 4)], fill=accent_fill, width=4)
+                    x += bw + space_w
+                y += line_h
+        if i < len(resolved) - 1:
+            y += gap
     return y
