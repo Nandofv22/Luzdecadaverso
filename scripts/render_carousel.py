@@ -105,6 +105,7 @@ def render_slide1(item):
     y = draw_stacked_headline(
         draw, item["headline_before"], item["headline_highlight"], item["headline_after"],
         headline_font, italic_font, W / 2, y, W - 180, DARK_TEXT, DIM_TEXT, ACCENT_BROWN,
+        before_accent=item.get("headline_before_accent", False),
     )
     draw_centered_multiline(draw, sub_lines, sub_font, W / 2, y + gap2, sub_line_h, DIM_TEXT)
 

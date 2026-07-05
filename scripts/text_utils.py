@@ -120,7 +120,26 @@ def measure_stacked_headline(draw, before, highlight, after, bold_font, italic_f
     return total_h, bold_line_h, italic_line_h
 
 
-def draw_stacked_headline(draw, before, highlight, after, bold_font, italic_font, center_x, top_y, max_width, dark_fill, dim_fill, accent_fill, gap=14):
+def _draw_bold_lines_last_word_accent(draw, lines, font, center_x, top_y, line_h, dark_fill, accent_fill, space_w, accent_whole_last_line=False):
+    y = top_y
+    for i, line in enumerate(lines):
+        words = line.split()
+        widths, total_w = _line_width(draw, words, font, space_w)
+        x = center_x - total_w / 2
+        is_last_line = i == len(lines) - 1
+        for j, (w, bw) in enumerate(zip(words, widths)):
+            is_accented = is_last_line and (accent_whole_last_line or j == len(words) - 1)
+            color = accent_fill if is_accented else dark_fill
+            draw.text((x, y), w, font=font, fill=color)
+            if is_accented:
+                bbox = draw.textbbox((x, y), w, font=font)
+                draw.line([(bbox[0], bbox[3] + 4), (bbox[2], bbox[3] + 4)], fill=accent_fill, width=4)
+            x += bw + space_w
+        y += line_h
+    return y
+
+
+def draw_stacked_headline(draw, before, highlight, after, bold_font, italic_font, center_x, top_y, max_width, dark_fill, dim_fill, accent_fill, gap=14, before_accent=False):
     """Draws a 3-line headline: BOLD CAPS / italic phrase / BOLD CAPS with last word underlined+accented."""
     lines_before = wrap_text(draw, before.upper(), bold_font, max_width)
     lines_highlight = wrap_text(draw, highlight, italic_font, max_width)
@@ -130,26 +149,21 @@ def draw_stacked_headline(draw, before, highlight, after, bold_font, italic_font
     space_w_bold = draw.textbbox((0, 0), " ", font=bold_font)[2]
 
     y = top_y
-    for line in lines_before:
-        draw_centered_multiline(draw, [line], bold_font, center_x, y, 0, dark_fill)
-        y += bold_line_h
+    if before_accent:
+        y = _draw_bold_lines_last_word_accent(
+            draw, lines_before, bold_font, center_x, y, bold_line_h, dark_fill, accent_fill, space_w_bold,
+            accent_whole_last_line=True,
+        )
+    else:
+        for line in lines_before:
+            draw_centered_multiline(draw, [line], bold_font, center_x, y, 0, dark_fill)
+            y += bold_line_h
     y += gap
 
     draw_centered_multiline(draw, lines_highlight, italic_font, center_x, y, italic_line_h, dim_fill)
     y += italic_line_h * len(lines_highlight) + gap
 
-    for i, line in enumerate(lines_after):
-        words = line.split()
-        widths, total_w = _line_width(draw, words, bold_font, space_w_bold)
-        x = center_x - total_w / 2
-        is_last_line = i == len(lines_after) - 1
-        for j, (w, bw) in enumerate(zip(words, widths)):
-            is_last_word = is_last_line and j == len(words) - 1
-            color = accent_fill if is_last_word else dark_fill
-            draw.text((x, y), w, font=bold_font, fill=color)
-            if is_last_word:
-                bbox = draw.textbbox((x, y), w, font=bold_font)
-                draw.line([(bbox[0], bbox[3] + 4), (bbox[2], bbox[3] + 4)], fill=accent_fill, width=4)
-            x += bw + space_w_bold
-        y += bold_line_h
+    y = _draw_bold_lines_last_word_accent(
+        draw, lines_after, bold_font, center_x, y, bold_line_h, dark_fill, accent_fill, space_w_bold,
+    )
     return y
