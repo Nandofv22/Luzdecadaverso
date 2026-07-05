@@ -6,7 +6,15 @@ import os
 from PIL import Image, ImageDraw
 
 import state
-from text_utils import draw_centered_multiline, draw_mixed_headline, fit_text, load_font, measure_headline
+from text_utils import (
+    draw_centered_multiline,
+    draw_paragraph_last_word_accent,
+    draw_stacked_headline,
+    fit_text,
+    load_font,
+    measure_stacked_headline,
+    wrap_text,
+)
 
 CONTENT_ZONE_TOP = 180
 CONTENT_ZONE_BOTTOM = 950
@@ -78,10 +86,11 @@ def render_slide1(item):
     kicker_font = load_font("semibold", 26)
     kicker_h = draw.textbbox((0, 0), "Ag", font=kicker_font)[3] * 1.2
 
-    headline_font = load_font("bold", 64)
-    _, headline_line_h, headline_h = measure_headline(
+    headline_font = load_font("bold", 56)
+    italic_font = load_font("italic", 40)
+    headline_h, _, _ = measure_stacked_headline(
         draw, item["headline_before"], item["headline_highlight"], item["headline_after"],
-        headline_font, W - 180,
+        headline_font, italic_font, W - 180,
     )
 
     sub_font, sub_lines, sub_line_h = fit_text(draw, item["subtitle1"], "italic", W - 260, 260, 36, 24)
@@ -93,9 +102,9 @@ def render_slide1(item):
 
     draw_centered_multiline(draw, [item["kicker1"]], kicker_font, W / 2, start_y, 0, ACCENT_BROWN)
     y = start_y + kicker_h + gap1
-    y = draw_mixed_headline(
+    y = draw_stacked_headline(
         draw, item["headline_before"], item["headline_highlight"], item["headline_after"],
-        headline_font, W / 2, y, W - 180, DARK_TEXT, ACCENT_BROWN,
+        headline_font, italic_font, W / 2, y, W - 180, DARK_TEXT, DIM_TEXT, ACCENT_BROWN,
     )
     draw_centered_multiline(draw, sub_lines, sub_font, W / 2, y + gap2, sub_line_h, DIM_TEXT)
 
@@ -142,9 +151,10 @@ def render_slide3(item):
     kicker_h = draw.textbbox((0, 0), "Ag", font=kicker_font)[3] * 1.2
 
     headline_font = load_font("bold", 58)
-    _, headline_line_h, headline_h = measure_headline(
-        draw, item["cta_before"], item["cta_highlight"], item["cta_after"], headline_font, W - 180,
-    )
+    cta_text = f"{item['cta_before']} {item['cta_highlight']} {item['cta_after']}".strip()
+    cta_lines = wrap_text(draw, cta_text, headline_font, W - 180)
+    headline_line_h = draw.textbbox((0, 0), "Ag", font=headline_font)[3] * 1.15
+    headline_h = headline_line_h * len(cta_lines)
 
     sub_font, sub_lines, sub_line_h = fit_text(draw, item["cta_subtitle"], "italic", W - 260, 180, 32, 22)
     sub_h = sub_line_h * len(sub_lines)
@@ -165,9 +175,8 @@ def render_slide3(item):
 
     draw_centered_multiline(draw, [item["kicker3"]], kicker_font, W / 2, start_y, 0, ACCENT_BROWN)
     y = start_y + kicker_h + gap1
-    y = draw_mixed_headline(
-        draw, item["cta_before"], item["cta_highlight"], item["cta_after"],
-        headline_font, W / 2, y, W - 180, DARK_TEXT, ACCENT_BROWN,
+    y = draw_paragraph_last_word_accent(
+        draw, cta_text, headline_font, W / 2, y, W - 180, DARK_TEXT, ACCENT_BROWN,
     )
     y = draw_centered_multiline(draw, sub_lines, sub_font, W / 2, y + gap2, sub_line_h, DIM_TEXT)
 
