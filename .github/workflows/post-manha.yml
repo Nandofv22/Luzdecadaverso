@@ -1,0 +1,49 @@
+name: Post carrossel da manha (7h BRT)
+
+on:
+  schedule:
+    - cron: "0 10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Render carrossel
+        working-directory: scripts
+        run: python render_carousel.py --slot am
+
+      - name: Commit rendered images
+        run: |
+          git config user.name "luzdecadaverso-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add output/
+          git commit -m "chore: render carrossel manha $(date -u +%F)" || echo "nothing to commit"
+          git push
+
+      - name: Publish to Instagram
+        working-directory: scripts
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: python publish_carousel.py --slot am
+
+      - name: Commit rotation state
+        run: |
+          git config user.name "luzdecadaverso-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/state.json
+          git commit -m "chore: advance mensagem rotation (manha)" || echo "nothing to commit"
+          git pull --rebase
+          git push
