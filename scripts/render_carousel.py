@@ -16,8 +16,8 @@ from text_utils import (
     wrap_text,
 )
 
-CONTENT_ZONE_TOP = 180
-CONTENT_ZONE_BOTTOM = 950
+CONTENT_ZONE_TOP = 170
+CONTENT_ZONE_BOTTOM = 1060
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
@@ -63,7 +63,7 @@ def draw_progress_bar(draw, active_index, total=3):
 
 def draw_counter_and_cross(draw, index, total, dark_bg):
     color = CREAM_DIM if dark_bg else DIM_TEXT
-    counter_font = load_font("semibold", 20)
+    counter_font = load_font("semibold", 24)
     draw.text((60, 50), f"0{index + 1} / 0{total}", font=counter_font, fill=color)
     # simple cross ornament, top right
     cx, cy = W - 78, 62
@@ -74,7 +74,7 @@ def draw_counter_and_cross(draw, index, total, dark_bg):
 
 def draw_handle(draw, dark_bg):
     color = CREAM_DIM if dark_bg else DIM_TEXT
-    font = load_font("medium", 24)
+    font = load_font("medium", 27)
     draw_centered_multiline(draw, [HANDLE], font, W / 2, H - 130, 0, color)
 
 
@@ -83,16 +83,16 @@ def render_slide1(item):
     draw = ImageDraw.Draw(img)
     draw_counter_and_cross(draw, 0, 3, dark_bg=False)
 
-    kicker_font = load_font("semibold", 28)
+    kicker_font = load_font("semibold", 32)
     kicker_h = draw.textbbox((0, 0), "Ag", font=kicker_font)[3] * 1.2
 
-    headline_font = load_font("bold", 66)
-    italic_font = load_font("italic", 46)
+    headline_font = load_font("bold", 80)
+    italic_font = load_font("italic", 54)
     headline_h, resolved_chunks = measure_chunk_lines(
-        draw, item["headline_chunks"], headline_font, italic_font, W - 160,
+        draw, item["headline_chunks"], headline_font, italic_font, W - 120,
     )
 
-    sub_font, sub_lines, sub_line_h = fit_text(draw, item["subtitle1"], "italic", W - 260, 260, 38, 26)
+    sub_font, sub_lines, sub_line_h = fit_text(draw, item["subtitle1"], "italic", W - 220, 280, 44, 28)
     sub_h = sub_line_h * len(sub_lines)
 
     gap1, gap2 = 30, 44
@@ -114,14 +114,14 @@ def render_slide2(item):
     draw = ImageDraw.Draw(img)
     draw_counter_and_cross(draw, 1, 3, dark_bg=True)
 
-    kicker_font = load_font("semibold", 28)
+    kicker_font = load_font("semibold", 32)
     kicker_h = draw.textbbox((0, 0), "Ag", font=kicker_font)[3] * 1.2
 
     quote = f"“{item['versiculo_texto']}”"
-    quote_font, quote_lines, quote_line_h = fit_text(draw, quote, "bold_italic", W - 200, 600, 60, 34)
+    quote_font, quote_lines, quote_line_h = fit_text(draw, quote, "bold_italic", W - 160, 680, 74, 38)
     quote_h = quote_line_h * len(quote_lines)
 
-    ref_font = load_font("semibold", 28)
+    ref_font = load_font("semibold", 32)
     ref_h = draw.textbbox((0, 0), "Ag", font=ref_font)[3] * 1.2
 
     gap1, gap2 = 44, 34
@@ -143,26 +143,26 @@ def render_slide3(item):
     draw = ImageDraw.Draw(img)
     draw_counter_and_cross(draw, 2, 3, dark_bg=False)
 
-    kicker_font = load_font("semibold", 28)
+    kicker_font = load_font("semibold", 32)
     kicker_h = draw.textbbox((0, 0), "Ag", font=kicker_font)[3] * 1.2
 
-    headline_font = load_font("bold", 64)
+    headline_font = load_font("bold", 76)
     cta_text = f"{item['cta_before']} {item['cta_highlight']} {item['cta_after']}".strip()
-    cta_lines = wrap_text(draw, cta_text, headline_font, W - 160)
+    cta_lines = wrap_text(draw, cta_text, headline_font, W - 120)
     headline_line_h = draw.textbbox((0, 0), "Ag", font=headline_font)[3] * 1.15
     headline_h = headline_line_h * len(cta_lines)
 
-    sub_font, sub_lines, sub_line_h = fit_text(draw, item["cta_subtitle"], "italic", W - 260, 200, 34, 24)
+    sub_font, sub_lines, sub_line_h = fit_text(draw, item["cta_subtitle"], "italic", W - 220, 220, 38, 26)
     sub_h = sub_line_h * len(sub_lines)
 
-    btn_font = load_font("semibold", 32)
+    btn_font = load_font("semibold", 36)
     btn_text = "Salve para lembrar"
     bbox = draw.textbbox((0, 0), btn_text, font=btn_font)
     tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
     pad_x, pad_y = 46, 24
     btn_h = th + pad_y * 2
 
-    share_font = load_font("italic", 28)
+    share_font = load_font("italic", 31)
     share_h = draw.textbbox((0, 0), "Ag", font=share_font)[3] * 1.2
 
     gap1, gap2, gap3, gap4 = 28, 40, 46, 30
@@ -172,7 +172,7 @@ def render_slide3(item):
     draw_centered_multiline(draw, [item["kicker3"]], kicker_font, W / 2, start_y, 0, ACCENT_BROWN)
     y = start_y + kicker_h + gap1
     y = draw_paragraph_last_word_accent(
-        draw, cta_text, headline_font, W / 2, y, W - 160, DARK_TEXT, ACCENT_BROWN,
+        draw, cta_text, headline_font, W / 2, y, W - 120, DARK_TEXT, ACCENT_BROWN,
     )
     y = draw_centered_multiline(draw, sub_lines, sub_font, W / 2, y + gap2, sub_line_h, DIM_TEXT)
 
