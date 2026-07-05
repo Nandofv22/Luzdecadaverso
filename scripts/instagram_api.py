@@ -41,6 +41,25 @@ def create_carousel_container(ig_user_id, access_token, children_ids, caption):
     return _check(resp)["id"]
 
 
+def wait_until_finished(creation_id, access_token, timeout_s=90, interval_s=3):
+    deadline = time.time() + timeout_s
+    last_status = None
+    while time.time() < deadline:
+        resp = requests.get(
+            f"{GRAPH_BASE}/{creation_id}",
+            params={"fields": "status_code", "access_token": access_token},
+            timeout=30,
+        )
+        data = _check(resp)
+        last_status = data.get("status_code")
+        if last_status == "FINISHED":
+            return True
+        if last_status == "ERROR":
+            raise InstagramApiError(f"Container {creation_id} entrou em erro de processamento: {data}")
+        time.sleep(interval_s)
+    raise InstagramApiError(f"Timeout esperando container {creation_id} ficar pronto (ultimo status: {last_status})")
+
+
 def publish_container(ig_user_id, access_token, creation_id):
     resp = requests.post(
         f"{GRAPH_BASE}/{ig_user_id}/media_publish",

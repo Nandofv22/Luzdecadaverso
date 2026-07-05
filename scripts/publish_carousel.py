@@ -69,6 +69,9 @@ def main():
     print("Montando container do carrossel...")
     container_id = instagram_api.create_carousel_container(ig_user_id, access_token, children_ids, meta["caption"])
 
+    print("Aguardando o Instagram processar o carrossel...")
+    instagram_api.wait_until_finished(container_id, access_token)
+
     print("Publicando...")
     media_id = instagram_api.publish_container(ig_user_id, access_token, container_id)
     print(f"Publicado! media_id={media_id}")
