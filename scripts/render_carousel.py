@@ -6,7 +6,10 @@ import os
 from PIL import Image, ImageDraw
 
 import state
-from text_utils import draw_centered_multiline, draw_mixed_headline, fit_text, load_font
+from text_utils import draw_centered_multiline, draw_mixed_headline, fit_text, load_font, measure_headline
+
+CONTENT_ZONE_TOP = 180
+CONTENT_ZONE_BOTTOM = 950
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
@@ -73,16 +76,28 @@ def render_slide1(item):
     draw_counter_and_cross(draw, 0, 3, dark_bg=False)
 
     kicker_font = load_font("semibold", 26)
-    draw_centered_multiline(draw, [item["kicker1"]], kicker_font, W / 2, 200, 0, ACCENT_BROWN)
+    kicker_h = draw.textbbox((0, 0), "Ag", font=kicker_font)[3] * 1.2
 
-    headline_font = load_font("bold", 62)
-    y = draw_mixed_headline(
+    headline_font = load_font("bold", 64)
+    _, headline_line_h, headline_h = measure_headline(
         draw, item["headline_before"], item["headline_highlight"], item["headline_after"],
-        headline_font, W / 2, 280, W - 180, DARK_TEXT, ACCENT_BROWN,
+        headline_font, W - 180,
     )
 
-    sub_font, sub_lines, sub_line_h = fit_text(draw, item["subtitle1"], "italic", W - 260, 220, 34, 24)
-    draw_centered_multiline(draw, sub_lines, sub_font, W / 2, y + 30, sub_line_h, DIM_TEXT)
+    sub_font, sub_lines, sub_line_h = fit_text(draw, item["subtitle1"], "italic", W - 260, 260, 36, 24)
+    sub_h = sub_line_h * len(sub_lines)
+
+    gap1, gap2 = 28, 42
+    total_h = kicker_h + gap1 + headline_h + gap2 + sub_h
+    start_y = CONTENT_ZONE_TOP + max(0, (CONTENT_ZONE_BOTTOM - CONTENT_ZONE_TOP - total_h) / 2)
+
+    draw_centered_multiline(draw, [item["kicker1"]], kicker_font, W / 2, start_y, 0, ACCENT_BROWN)
+    y = start_y + kicker_h + gap1
+    y = draw_mixed_headline(
+        draw, item["headline_before"], item["headline_highlight"], item["headline_after"],
+        headline_font, W / 2, y, W - 180, DARK_TEXT, ACCENT_BROWN,
+    )
+    draw_centered_multiline(draw, sub_lines, sub_font, W / 2, y + gap2, sub_line_h, DIM_TEXT)
 
     draw_handle(draw, dark_bg=False)
     draw_progress_bar(draw, 0)
@@ -95,17 +110,23 @@ def render_slide2(item):
     draw_counter_and_cross(draw, 1, 3, dark_bg=True)
 
     kicker_font = load_font("semibold", 26)
-    draw_centered_multiline(draw, [item["kicker2"]], kicker_font, W / 2, 280, 0, ACCENT_GOLD)
+    kicker_h = draw.textbbox((0, 0), "Ag", font=kicker_font)[3] * 1.2
 
-    zone_top, zone_bottom = 400, 1000
     quote = f"“{item['versiculo_texto']}”"
-    font, lines, line_h = fit_text(draw, quote, "bold_italic", W - 220, zone_bottom - zone_top, 54, 30)
-    block_h = line_h * len(lines)
-    start_y = zone_top + (zone_bottom - zone_top - block_h) / 2
-    end_y = draw_centered_multiline(draw, lines, font, W / 2, start_y, line_h, CREAM_TEXT)
+    quote_font, quote_lines, quote_line_h = fit_text(draw, quote, "bold_italic", W - 220, 560, 54, 30)
+    quote_h = quote_line_h * len(quote_lines)
 
     ref_font = load_font("semibold", 28)
-    draw_centered_multiline(draw, [item["versiculo_ref"].upper()], ref_font, W / 2, end_y + 25, 0, ACCENT_GOLD)
+    ref_h = draw.textbbox((0, 0), "Ag", font=ref_font)[3] * 1.2
+
+    gap1, gap2 = 44, 34
+    total_h = kicker_h + gap1 + quote_h + gap2 + ref_h
+    start_y = CONTENT_ZONE_TOP + max(0, (CONTENT_ZONE_BOTTOM - CONTENT_ZONE_TOP - total_h) / 2)
+
+    draw_centered_multiline(draw, [item["kicker2"]], kicker_font, W / 2, start_y, 0, ACCENT_GOLD)
+    y = start_y + kicker_h + gap1
+    y = draw_centered_multiline(draw, quote_lines, quote_font, W / 2, y, quote_line_h, CREAM_TEXT)
+    draw_centered_multiline(draw, [item["versiculo_ref"].upper()], ref_font, W / 2, y + gap2, 0, ACCENT_GOLD)
 
     draw_handle(draw, dark_bg=True)
     draw_progress_bar(draw, 1)
@@ -118,29 +139,44 @@ def render_slide3(item):
     draw_counter_and_cross(draw, 2, 3, dark_bg=False)
 
     kicker_font = load_font("semibold", 26)
-    draw_centered_multiline(draw, [item["kicker3"]], kicker_font, W / 2, 220, 0, ACCENT_BROWN)
+    kicker_h = draw.textbbox((0, 0), "Ag", font=kicker_font)[3] * 1.2
 
-    headline_font = load_font("bold", 56)
-    y = draw_mixed_headline(
-        draw, item["cta_before"], item["cta_highlight"], item["cta_after"],
-        headline_font, W / 2, 310, W - 180, DARK_TEXT, ACCENT_BROWN,
+    headline_font = load_font("bold", 58)
+    _, headline_line_h, headline_h = measure_headline(
+        draw, item["cta_before"], item["cta_highlight"], item["cta_after"], headline_font, W - 180,
     )
 
     sub_font, sub_lines, sub_line_h = fit_text(draw, item["cta_subtitle"], "italic", W - 260, 180, 32, 22)
-    y = draw_centered_multiline(draw, sub_lines, sub_font, W / 2, y + 25, sub_line_h, DIM_TEXT)
+    sub_h = sub_line_h * len(sub_lines)
 
     btn_font = load_font("semibold", 30)
     btn_text = "Salve para lembrar"
     bbox = draw.textbbox((0, 0), btn_text, font=btn_font)
     tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
     pad_x, pad_y = 46, 24
-    btn_top = y + 50
+    btn_h = th + pad_y * 2
+
+    share_font = load_font("italic", 26)
+    share_h = draw.textbbox((0, 0), "Ag", font=share_font)[3] * 1.2
+
+    gap1, gap2, gap3, gap4 = 28, 40, 46, 30
+    total_h = kicker_h + gap1 + headline_h + gap2 + sub_h + gap3 + btn_h + gap4 + share_h
+    start_y = CONTENT_ZONE_TOP + max(0, (CONTENT_ZONE_BOTTOM - CONTENT_ZONE_TOP - total_h) / 2)
+
+    draw_centered_multiline(draw, [item["kicker3"]], kicker_font, W / 2, start_y, 0, ACCENT_BROWN)
+    y = start_y + kicker_h + gap1
+    y = draw_mixed_headline(
+        draw, item["cta_before"], item["cta_highlight"], item["cta_after"],
+        headline_font, W / 2, y, W - 180, DARK_TEXT, ACCENT_BROWN,
+    )
+    y = draw_centered_multiline(draw, sub_lines, sub_font, W / 2, y + gap2, sub_line_h, DIM_TEXT)
+
+    btn_top = y + gap3
     box = [W / 2 - tw / 2 - pad_x, btn_top, W / 2 + tw / 2 + pad_x, btn_top + th + pad_y * 2]
     draw.rounded_rectangle(box, radius=34, fill=ACCENT_BROWN)
     draw.text((W / 2 - tw / 2, btn_top + pad_y - bbox[1]), btn_text, font=btn_font, fill=(250, 242, 228))
 
-    share_font = load_font("italic", 26)
-    draw_centered_multiline(draw, ["Compartilhe essa luz"], share_font, W / 2, box[3] + 30, 0, DIM_TEXT)
+    draw_centered_multiline(draw, ["Compartilhe essa luz"], share_font, W / 2, box[3] + gap4, 0, DIM_TEXT)
 
     draw_handle(draw, dark_bg=False)
     draw_progress_bar(draw, 2)

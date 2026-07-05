@@ -2,6 +2,13 @@ import os
 
 from PIL import ImageFont
 
+
+def measure_headline(draw, plain_before, highlight_word, plain_after, font, max_width, line_spacing=1.15):
+    full_text = f"{plain_before} {highlight_word} {plain_after}".strip()
+    lines = wrap_text(draw, full_text, font, max_width)
+    line_h = draw.textbbox((0, 0), "Ag", font=font)[3] * line_spacing
+    return lines, line_h, line_h * len(lines)
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONTS_DIR = os.path.join(HERE, "..", "assets", "fonts")
 
