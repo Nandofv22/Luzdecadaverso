@@ -27,6 +27,15 @@ def create_carousel_item(ig_user_id, access_token, image_url):
     return _check(resp)["id"]
 
 
+def create_media_container(ig_user_id, access_token, image_url, caption):
+    resp = requests.post(
+        f"{GRAPH_BASE}/{ig_user_id}/media",
+        data={"image_url": image_url, "caption": caption, "access_token": access_token},
+        timeout=60,
+    )
+    return _check(resp)["id"]
+
+
 def create_carousel_container(ig_user_id, access_token, children_ids, caption):
     resp = requests.post(
         f"{GRAPH_BASE}/{ig_user_id}/media",
