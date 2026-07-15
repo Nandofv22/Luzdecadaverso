@@ -36,6 +36,21 @@ def create_media_container(ig_user_id, access_token, image_url, caption):
     return _check(resp)["id"]
 
 
+def create_reels_container(ig_user_id, access_token, video_url, caption, share_to_feed=True):
+    resp = requests.post(
+        f"{GRAPH_BASE}/{ig_user_id}/media",
+        data={
+            "media_type": "REELS",
+            "video_url": video_url,
+            "caption": caption,
+            "share_to_feed": "true" if share_to_feed else "false",
+            "access_token": access_token,
+        },
+        timeout=60,
+    )
+    return _check(resp)["id"]
+
+
 def create_carousel_container(ig_user_id, access_token, children_ids, caption):
     resp = requests.post(
         f"{GRAPH_BASE}/{ig_user_id}/media",
