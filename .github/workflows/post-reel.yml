@@ -20,6 +20,9 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
       - name: Render reel
         working-directory: scripts
         run: python render_reel.py

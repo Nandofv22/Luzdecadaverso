@@ -3,6 +3,7 @@ import datetime
 import json
 import os
 import subprocess
+import sys
 
 import state
 from render_carousel import HASHTAGS, load_bank, render_slide1, render_slide2, render_slide3
@@ -16,16 +17,22 @@ SLIDE_DURATION = 4.5
 XFADE_DUR = 0.6
 
 
+def run_ffmpeg(cmd):
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(result.stderr[-3000:], file=sys.stderr)
+        raise RuntimeError(f"ffmpeg falhou (codigo {result.returncode})")
+
+
 def make_segment(image_path, out_path):
     frames = int(SLIDE_DURATION * FPS)
     vf = (
         f"scale=1080:1350,zoompan=z='min(zoom+0.0004,1.045)':d={frames}:s=1080x1350:fps={FPS},"
         "format=yuv420p"
     )
-    subprocess.run(
+    run_ffmpeg(
         ["ffmpeg", "-y", "-loop", "1", "-i", image_path, "-vf", vf, "-t", str(SLIDE_DURATION),
-         "-pix_fmt", "yuv420p", out_path],
-        check=True, capture_output=True,
+         "-pix_fmt", "yuv420p", out_path]
     )
 
 
@@ -59,7 +66,7 @@ def concat_with_xfade(segment_paths, out_path):
         "-movflags", "+faststart",
         out_path,
     ]
-    subprocess.run(cmd, check=True, capture_output=True)
+    run_ffmpeg(cmd)
 
 
 def build_reel_caption(item):
