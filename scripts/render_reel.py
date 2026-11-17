@@ -11,6 +11,7 @@ from render_carousel import HASHTAGS, load_bank, render_slide1, render_slide2, r
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
 OUTPUT_DIR = os.path.join(ROOT, "output")
+MUSIC_DIR = os.path.join(ROOT, "assets", "music")
 
 FPS = 25
 SLIDE_DURATION = 4.5
@@ -36,7 +37,18 @@ def make_segment(image_path, out_path):
     )
 
 
-def concat_with_xfade(segment_paths, out_path):
+def pick_music(date_str):
+    """Escolhe um trecho de louvor diferente a cada dia (rotacao pela data). None se nao houver."""
+    if not os.path.isdir(MUSIC_DIR):
+        return None
+    clips = sorted(f for f in os.listdir(MUSIC_DIR) if f.endswith((".m4a", ".mp3")))
+    if not clips:
+        return None
+    day = datetime.date.fromisoformat(date_str).toordinal()
+    return os.path.join(MUSIC_DIR, clips[day % len(clips)])
+
+
+def concat_with_xfade(segment_paths, out_path, music_path=None):
     n = len(segment_paths)
     inputs = []
     for s in segment_paths:
@@ -53,9 +65,11 @@ def concat_with_xfade(segment_paths, out_path):
         cumulative += SLIDE_DURATION - XFADE_DUR
     filter_complex = ";".join(filter_parts)
 
-    cmd = ["ffmpeg", "-y"] + inputs + [
-        "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100",
+    audio_input = ["-i", music_path] if music_path else ["-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100"]
+    total = n * SLIDE_DURATION - (n - 1) * XFADE_DUR
+    cmd = ["ffmpeg", "-y"] + inputs + audio_input + [
         "-filter_complex", filter_complex,
+        "-af", f"afade=t=out:st={total - 1.0:.2f}:d=1.0",
         "-map", f"[{prev}]",
         "-map", f"{n}:a",
         "-shortest",
@@ -107,7 +121,7 @@ def main():
         seg_paths.append(seg_path)
 
     video_path = os.path.join(OUTPUT_DIR, f"{prefix}.mp4")
-    concat_with_xfade(seg_paths, video_path)
+    concat_with_xfade(seg_paths, video_path, pick_music(date_str))
 
     for p in frame_paths + seg_paths:
         os.remove(p)
